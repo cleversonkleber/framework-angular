@@ -6,6 +6,7 @@ import { AppComponent } from './app.component';
 import { FormsModule } from '@angular/forms';
 import { InputTextModule } from 'primeng/inputtext';
 import { ButtonModule } from 'primeng/button';
+import { TableModule } from 'primeng/table';
 
 
 @NgModule({
@@ -18,7 +19,8 @@ import { ButtonModule } from 'primeng/button';
     AppRoutingModule,
     FormsModule,
     InputTextModule,
-    ButtonModule
+    ButtonModule,
+    TableModule
   ],
   providers: [],
   bootstrap: [AppComponent]
