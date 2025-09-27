@@ -1,8 +1,17 @@
-<div class="container">
-    <app-cantor-form (cantorAdicionado)="aoAdicionar($event)"></app-cantor-form>
-   <div class="row" style="margin-top: 28px;">
-        <div class="col-2" *ngFor="let c of cantores">
-            <app-cantor-card [cantor]="c"></app-cantor-card>
-        </div>
-   </div>
-</div>
+<p-tabView id="closableTabView">
+    <p-tabPanel header="Header I" [selected]="true">
+        <p>
+            Lorem ipsum dolor sit amet, consectetur adipiscing elit...
+        </p>
+    </p-tabPanel>
+    <p-tabPanel header="Header II" [closable]="true">
+        <p>
+            Sed ut perspiciatis unde omnis iste natus error sit voluptatem accusantium...
+        </p>
+    </p-tabPanel>
+    <p-tabPanel header="Header III" [closable]="true">
+        <p>
+            At vero eos et accusamus et iusto odio dignissimos...
+        </p>
+    </p-tabPanel>
+</p-tabView>
