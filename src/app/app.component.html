@@ -17,7 +17,11 @@
     </div>
     <div class="grid">
       <div class="col-12">
-        <p-table [value]="cantores">
+        <p-table [value]="cantores"
+        [paginator]="true"
+        [rows]="5"
+        [showCurrentPageReport]="true"
+        >
         <ng-template pTemplate="header">
           <tr>
             <th class="col-id">ID</th>
@@ -33,8 +37,8 @@
               <td [ngStyle]="{color: cantor.pais === 'Brasil' ? '#2eb82e':'#495057'}">
                 {{ cantor.pais }}</td>
                 <td class="col-acoes">
-                  <a pButton icon="pi pi-pencil"></a>
-                  <button pButton icon="pi pi-trash"></button>
+                  <a pButton icon="pi pi-pencil" pTooltip="Editar" tooltipPosition="top"></a>
+                  <button pButton icon="pi pi-trash" pTooltip="Excluir" tooltipPosition="top"></button>
                 </td>
           </tr>
          </ng-template>
@@ -42,6 +46,6 @@
       </div>
     </div>
     <div class="col-12">
-      <a pButton label="Novo Cantor"></a>
+      <a pButton label="Novo Cantor" pTooltip="Novo Cnator" tooltipPosition="top"></a>
     </div>
 </div>
