@@ -1,17 +1,19 @@
-<label >Nome</label>
-<input type="text" name="" id="" appInputColor [corUsuario]="'red'" #texto="inputColor">
-
-<br><label for="">Teste</label>
-<input type="text">
-<br>
-<button (click)="texto.comFoco()">Coloca Cor</button>
-<button (click)="texto.semFoco()">Retira cor</button>
-<br>
-<br>
-<div>
-  <h1>{{nome | lowercase}}</h1>
-  <h1>{{dataCadastro | date: 'dd/MM/y'}}</h1>
-  <h1>{{valor | number}}</h1>
-  <h1>{{valor2 | currency:'BRL':true:'1.2-2'}}</h1>
-
+<div class="container">
+  <form #cantorForm="ngForm" (ngSubmit)="salvar(cantorForm)">
+    <div>
+      <label for="">Nome</label>
+      <input type="text" name="nome" ngModel>
+    </div>
+    <div>
+      <label for="">Pais</label>
+       <select name="pais" ngModel>
+        <option>Brasil</option>
+        <option>Estados Unidos</option>
+        <option>Inglaterra</option>
+        <option>Irlanda</option>
+        <option>Porgual</option>
+       </select>
+    </div>
+    <button type="submit">Salvar</button>
+  </form>
 </div>
