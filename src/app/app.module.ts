@@ -10,13 +10,17 @@ import { TableModule } from 'primeng/table';
 import { TooltipModule } from 'primeng/tooltip';
 import { CantoresPesquisaComponent } from './cantores-pesquisa/cantores-pesquisa.component';
 import { NavbarComponent } from './navbar/navbar.component';
+import { CantorCadastroComponent } from './cantor-cadastro/cantor-cadastro.component';
+import { InputColorDirective } from './input-color.directive';
 
 
 @NgModule({
   declarations: [
     AppComponent,
     CantoresPesquisaComponent,
-    NavbarComponent
+    NavbarComponent,
+    CantorCadastroComponent,
+    InputColorDirective
 
   ],
   imports: [

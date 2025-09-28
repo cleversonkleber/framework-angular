@@ -1,0 +1,8 @@
+<label >Nome</label>
+<input type="text" name="" id="" appInputColor [corUsuario]="'red'" #texto="inputColor">
+
+<br><label for="">Teste</label>
+<input type="text">
+<br>
+<button (click)="texto.comFoco()">Coloca Cor</button>
+<button (click)="texto.semFoco()">Retira cor</button>
