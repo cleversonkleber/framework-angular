@@ -1,17 +1,24 @@
 <div class="container">
-  <div *ngIf="cantorForm.invalid" style="background-color: red; color: aliceblue;">
+  {{cantor | json}}
+  <div *ngIf="cantorForm.invalid && cantorForm.dirty" style="background-color: red; color: aliceblue;">
     Preencher corretamente os campos do usuário!
   </div>
-
+  <br>
   <form #cantorForm="ngForm" (ngSubmit)="salvar(cantorForm)">
     <div>
       <label>Nome</label>
       <input type="text" name="nomeCantor" [(ngModel)]="cantor.nome" required minlength="3" #nome="ngModel">
       <br>
-      <div *ngIf="nome.hasError('required')" style="background-color: red; color: aliceblue;">
+      <!-- <br>
+      Touched: {{nome.touched}}
+      <br>
+      Pristine: {{nome.pristine}}
+      <br>
+      Direty:{{nome.dirty}} -->
+      <div *ngIf="nome.hasError('required') && nome.touched " style="color: red;">
           Informe o nome do cantor valido!
       </div>
-          <div *ngIf="nome.hasError('minlength')" style="background-color: red; color: aliceblue;">
+          <div *ngIf="nome.hasError('minlength') && nome.touched && nome.dirty" style="color: red;">
           O nome do cantor deve ser completo!!
       </div>
     </div>
@@ -24,7 +31,7 @@
        </select>
     </div>
       <br>
-      <div *ngIf="pais.invalid" style="background-color: red; color: aliceblue;">
+      <div *ngIf="pais.invalid && pais.touched" style="background-color: red; color: aliceblue;">
           Pais deve ser selecionado!
       </div>
       <br>
