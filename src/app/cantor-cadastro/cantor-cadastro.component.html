@@ -6,3 +6,12 @@
 <br>
 <button (click)="texto.comFoco()">Coloca Cor</button>
 <button (click)="texto.semFoco()">Retira cor</button>
+<br>
+<br>
+<div>
+  <h1>{{nome | lowercase}}</h1>
+  <h1>{{dataCadastro | date: 'dd/MM/y'}}</h1>
+  <h1>{{valor | number}}</h1>
+  <h1>{{valor2 | currency:'BRL':true:'1.2-2'}}</h1>
+
+</div>
