@@ -20,8 +20,8 @@ export class CantorCadastroComponent {
     this.cantor.nome =  cantorForm.value.nomeCantor;
     this.cantor.pais =  cantorForm.value.nomePais;
 
-    console.log(cantorForm.value)
-    console.log(this.cantor)
+    console.log(cantorForm)
+    // console.log(this.cantor)
   }
 
 

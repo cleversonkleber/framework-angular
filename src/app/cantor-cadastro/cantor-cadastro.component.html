@@ -1,17 +1,33 @@
 <div class="container">
-  {{cantor | json}}
+  <div *ngIf="cantorForm.invalid" style="background-color: red; color: aliceblue;">
+    Preencher corretamente os campos do usuário!
+  </div>
+
   <form #cantorForm="ngForm" (ngSubmit)="salvar(cantorForm)">
     <div>
       <label>Nome</label>
-      <input type="text" name="nomeCantor" [(ngModel)]="cantor.nome">
+      <input type="text" name="nomeCantor" [(ngModel)]="cantor.nome" required minlength="3" #nome="ngModel">
+      <br>
+      <div *ngIf="nome.hasError('required')" style="background-color: red; color: aliceblue;">
+          Informe o nome do cantor valido!
+      </div>
+          <div *ngIf="nome.hasError('minlength')" style="background-color: red; color: aliceblue;">
+          O nome do cantor deve ser completo!!
+      </div>
     </div>
+    <br>
     <div>
       <label>Pais</label>
-       <select name="nomePais" [(ngModel)]="cantor.pais">
-        <option>Selecionar</option>
+       <select name="nomePais" [(ngModel)]="cantor.pais" #pais="ngModel" required>
+        <option value="">Selecionar</option>
         <option *ngFor="let pais of paises" [value]="pais">{{pais}}</option>
        </select>
     </div>
-    <button type="submit">Salvar</button>
+      <br>
+      <div *ngIf="pais.invalid" style="background-color: red; color: aliceblue;">
+          Pais deve ser selecionado!
+      </div>
+      <br>
+    <button type="submit" [disabled]="cantorForm.invalid">Salvar</button>
   </form>
 </div>
