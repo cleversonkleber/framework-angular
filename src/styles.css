@@ -29,3 +29,12 @@ label{
 .col-acoes .p-button{
   margin-right: 5px;
 }
+
+a{
+  color: rgb(189, 189, 37);
+  text-decoration: none;
+}
+
+a:hover, a:focus{
+  text-decoration: underline;
+}

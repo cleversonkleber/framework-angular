@@ -1,40 +1,51 @@
 <div class="container">
-  {{cantor | json}}
-  <div *ngIf="cantorForm.invalid && cantorForm.dirty" style="background-color: red; color: aliceblue;">
-    Preencher corretamente os campos do usuário!
-  </div>
-  <br>
-  <form #cantorForm="ngForm" (ngSubmit)="salvar(cantorForm)">
-    <div>
-      <label>Nome</label>
-      <input type="text" name="nomeCantor" [(ngModel)]="cantor.nome" required minlength="3" #nome="ngModel">
-      <br>
-      <!-- <br>
-      Touched: {{nome.touched}}
-      <br>
-      Pristine: {{nome.pristine}}
-      <br>
-      Direty:{{nome.dirty}} -->
-      <div *ngIf="nome.hasError('required') && nome.touched " style="color: red;">
-          Informe o nome do cantor valido!
+  <form autocomplete="off" #cantorForm="ngForm" (ngSubmit)="salvar(cantorForm)">
+    <div class="grid">
+      <div class="col-12">
+        <h1>Novo cantor</h1>
       </div>
-          <div *ngIf="nome.hasError('minlength') && nome.touched && nome.dirty" style="color: red;">
-          O nome do cantor deve ser completo!!
+
+      <div class="col-12 p-fluid">
+        <label>Nome do cantor</label>
+        <input pInputText type="text" name="nomeCantor"
+              [(ngModel)]="cantor.nome" required minlength="2"
+              #nome="ngModel">
+
+         <div *ngIf="nome.hasError('required') && nome.dirty " style="color: red;">
+            Informe o nome do cantor valido!
+        </div>
+            <div *ngIf="nome.hasError('minlength')  && nome.dirty" style="color: red;">
+            O nome do cantor deve conter no mínimo {{nome.errors?.['minlength'].requiredLength}}!!
+        </div>
+      </div>
+
+      <div class="col-12 md:col-6 p-fluid">
+        <label>Pais</label>
+         <p-dropdown
+            [options]="paises"
+            placeholder="Selecione um Pais"
+            name="nomePais"
+            [required]="true"
+            [(ngModel)]="cantor.pais"
+            #pais="ngModel">
+          </p-dropdown>
+
+         <!-- <select name="nomePais" [(ngModel)]="cantor.pais" #pais="ngModel" required>
+          <option value="">Selecionar</option>
+          <option *ngFor="let pais of paises" [value]="pais">{{pais}}</option>
+         </select>
+      </div>
+        <br>
+        <div *ngIf="pais.invalid && pais.touched" style="background-color: red; color: aliceblue;">
+            Pais deve ser selecionado!
+        </div> -->
+      </div>
+      <div class="col-12">
+        <button pButton type="submit" [disabled]="cantorForm.invalid">Salvar</button>
+        <button pButton type="button" label="Novo" class="p-button-secondary"></button>
+        <a href="javascript:;">Voltar para a pesquisa</a>
+
       </div>
     </div>
-    <br>
-    <div>
-      <label>Pais</label>
-       <select name="nomePais" [(ngModel)]="cantor.pais" #pais="ngModel" required>
-        <option value="">Selecionar</option>
-        <option *ngFor="let pais of paises" [value]="pais">{{pais}}</option>
-       </select>
-    </div>
-      <br>
-      <div *ngIf="pais.invalid && pais.touched" style="background-color: red; color: aliceblue;">
-          Pais deve ser selecionado!
-      </div>
-      <br>
-    <button type="submit" [disabled]="cantorForm.invalid">Salvar</button>
   </form>
 </div>

@@ -1,5 +1,7 @@
 import { NgModule } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
+import {BrowserAnimationsModule} from '@angular/platform-browser/animations'
+import {NoopAnimationsModule} from '@angular/platform-browser/animations'
 
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
@@ -12,6 +14,7 @@ import { CantoresPesquisaComponent } from './cantores-pesquisa/cantores-pesquisa
 import { NavbarComponent } from './navbar/navbar.component';
 import { CantorCadastroComponent } from './cantor-cadastro/cantor-cadastro.component';
 import { InputColorDirective } from './input-color.directive';
+import { DropdownModule } from 'primeng/dropdown';
 
 
 @NgModule({
@@ -30,7 +33,10 @@ import { InputColorDirective } from './input-color.directive';
     InputTextModule,
     ButtonModule,
     TableModule,
-    TooltipModule
+    TooltipModule,
+    DropdownModule,
+    BrowserAnimationsModule,
+    NoopAnimationsModule
   ],
   providers: [],
   bootstrap: [AppComponent]
