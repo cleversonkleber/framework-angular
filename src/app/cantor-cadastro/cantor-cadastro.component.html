@@ -1,17 +1,15 @@
 <div class="container">
+  {{cantor | json}}
   <form #cantorForm="ngForm" (ngSubmit)="salvar(cantorForm)">
     <div>
-      <label for="">Nome</label>
-      <input type="text" name="nome" ngModel>
+      <label>Nome</label>
+      <input type="text" name="nomeCantor" [(ngModel)]="cantor.nome">
     </div>
     <div>
-      <label for="">Pais</label>
-       <select name="pais" ngModel>
-        <option>Brasil</option>
-        <option>Estados Unidos</option>
-        <option>Inglaterra</option>
-        <option>Irlanda</option>
-        <option>Porgual</option>
+      <label>Pais</label>
+       <select name="nomePais" [(ngModel)]="cantor.pais">
+        <option>Selecionar</option>
+        <option *ngFor="let pais of paises" [value]="pais">{{pais}}</option>
        </select>
     </div>
     <button type="submit">Salvar</button>
