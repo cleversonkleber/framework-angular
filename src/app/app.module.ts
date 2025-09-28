@@ -8,11 +8,15 @@ import { InputTextModule } from 'primeng/inputtext';
 import { ButtonModule } from 'primeng/button';
 import { TableModule } from 'primeng/table';
 import { TooltipModule } from 'primeng/tooltip';
+import { CantoresPesquisaComponent } from './cantores-pesquisa/cantores-pesquisa.component';
+import { NavbarComponent } from './navbar/navbar.component';
 
 
 @NgModule({
   declarations: [
-    AppComponent
+    AppComponent,
+    CantoresPesquisaComponent,
+    NavbarComponent
 
   ],
   imports: [
